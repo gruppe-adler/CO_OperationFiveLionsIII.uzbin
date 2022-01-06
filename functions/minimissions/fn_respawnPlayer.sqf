@@ -15,4 +15,6 @@ if (!alive _unit && !isPlayer _unit) then {
     diag_log "minimissions: respawning AI";
 };
 
-_bodybag setVariable ["grad_minimissions_unitName", "", true];
+if (!isNull _bodybag) then {
+    _bodybag setVariable ["grad_minimissions_unitName", "", true];
+};

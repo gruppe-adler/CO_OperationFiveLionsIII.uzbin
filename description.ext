@@ -54,7 +54,7 @@ class CfgFunctions
     #include "functions\events\cfgFunctions.hpp"
     #include "functions\external\cfgFunctions.hpp"
     #include "functions\groupsettings\cfgFunctions.hpp"
-		#include "functions\minimissions\cfgFunctions.hpp"
+	#include "functions\minimissions\cfgFunctions.hpp"
 	#include "functions\missionSetup\cfgFunctions.hpp"
     #include "functions\radiosettings\cfgFunctions.hpp"
 	#include "functions\waverespawn\cfgFunctions.hpp"

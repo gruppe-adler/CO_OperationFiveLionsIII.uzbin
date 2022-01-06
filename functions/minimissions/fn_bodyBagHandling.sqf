@@ -20,6 +20,8 @@ if (isServer) then {
                         private _bodyBagNew = createVehicle ["Land_Bodybag_01_black_F", [0,0,0], [], 0, "NONE"];
                         _bodyBagNew setDir _dir;
                         _bodyBagNew setPosWorld _position;
+
+                        _target setVariable ["grad_bodybag_object", _bodyBag, true];
                         
                         [{ 
                                 params ["_bodyBag"];

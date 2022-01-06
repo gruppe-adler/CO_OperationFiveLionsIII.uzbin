@@ -10,4 +10,9 @@ class GRAD_USER {
         class animateTexture {};
         class showIntro {};
     };
+
+    class medicHacks {
+        file = "USER\medicHacks";
+        class medicEventhandler { postinit = 1; };
+    };
 };
