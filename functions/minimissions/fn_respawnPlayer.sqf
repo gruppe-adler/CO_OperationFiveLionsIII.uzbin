@@ -5,8 +5,9 @@ if (_unit getVariable ["ACE_isUnconscious", false]) then {
     [_unit, _unit] call ace_medical_treatment_fnc_fullHeal;
 };
 
-if (!alive _unit && isPlayer _unit) then {
+if (isPlayer _unit) then {
     setPlayerRespawnTime 1;
+    _unit setDamage 1;
     diag_log "minimissions: respawning player";
 };
 
