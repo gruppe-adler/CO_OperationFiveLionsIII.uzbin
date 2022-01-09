@@ -65,6 +65,7 @@ class CfgFunctions
 	#include "grad-rotorWash\cfgFunctions.hpp"
 
 	#include "USER\userFunctions.hpp"
+    #include "scripts\cbrn\funcs.hpp"
 };
 
 
@@ -74,6 +75,7 @@ class CfgFunctions
 class RscTitles {
 	#include "node_modules\grad-fortifications\dialog\hint\title.hpp"
 	#include "USER\userTitles.hpp"
+    #include "scripts\cbrn\rsctitles.hpp"
 
     class grad_Default {
         idd = -1;
@@ -107,7 +109,74 @@ class Params {
 //SOUNDS =======================================================================
 class CfgSounds {
 	#include "USER\userSounds.hpp"
+    #include "scripts\cbrn\sounds\sounds.hpp"
 };
+
+
+class CfgHints
+{
+   class CBRN
+   {
+       displayName = "CBRN";
+
+       class Sauerstoff
+       {
+           // Hint title, filled by arguments from 'arguments' param
+          displayName = "CBRN Sauerstoff";
+          // Optional hint subtitle, filled by arguments from 'arguments' param
+          displayNameShort = "";
+          // Structured text, filled by arguments from 'arguments' param
+          description = "Hey %11! Denk dran den Sauerstoffhahn des Sauerstofftanks aufzudrehen mit %3ACE Self-Interact%4.";
+          // Optional structured text, filled by arguments from 'arguments' param (first argument is %11, see notes bellow), grey color of text
+          tip = "";
+          arguments[] = {
+            "name player" // Simple string will be simply compiled and called, String can also link to localization database in case it starts by str_
+          };
+          // Optional image
+          image = "pic\propaganda2.jpg";
+          // optional parameter for not showing of image in context hint in mission (default false))
+          noImage = false;
+          // -1 Creates no log in player diary, 0 Creates diary log ( default when not provided )
+          // if a dlc's appID Number is used ( see getDLCs ) and the user does not have the required dlc installed then the advHint will be replaced with
+          // configfile >> "CfgHints" >> "DlcMessage" >> "Dlc#"; where # is this properties ( dlc appID ) number
+          dlc = -1;
+       };
+
+       class Verstrahlt
+       {
+           // Hint title, filled by arguments from 'arguments' param
+          displayName = "CBRN Verstrahlt";
+          // Optional hint subtitle, filled by arguments from 'arguments' param
+          displayNameShort = "";
+          // Structured text, filled by arguments from 'arguments' param
+          description = "Achtung %11! Du bist so stark verstrahlt, dass du langsam stirbst. Such so schnell wie möglich eine %3Dekontaminierungs-Dusche%4!";
+          // Optional structured text, filled by arguments from 'arguments' param (first argument is %11, see notes bellow), grey color of text
+          tip = "";
+          arguments[] = {
+            "name player" // Simple string will be simply compiled and called, String can also link to localization database in case it starts by str_
+          };
+          // Optional image
+          image = "pic\propaganda2.jpg";
+          // optional parameter for not showing of image in context hint in mission (default false))
+          noImage = false;
+          // -1 Creates no log in player diary, 0 Creates diary log ( default when not provided )
+          // if a dlc's appID Number is used ( see getDLCs ) and the user does not have the required dlc installed then the advHint will be replaced with
+          // configfile >> "CfgHints" >> "DlcMessage" >> "Dlc#"; where # is this properties ( dlc appID ) number
+          dlc = -1;
+       };
+   };
+};
+
+class Extended_PreInit_EventHandlers {
+    class cbrn_preInit {
+        init = "[] call compile preProcessFileLineNumbers 'scripts\cbrn\XEH_PreInit.sqf'";
+    };
+};
+
+class Extended_InitPost_EventHandlers {
+    #include "scripts\cbrn\XEH_InitPost_eh.hpp"
+};
+
 
 //MUSIC =======================================================================
 class CfgMusic {
