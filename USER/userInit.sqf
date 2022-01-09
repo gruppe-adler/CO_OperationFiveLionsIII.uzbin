@@ -36,3 +36,5 @@ if (!isServer) exitWith {};
     }, [_group], 3] call CBA_fnc_waitAndExecute;
    
 }] call CBA_fnc_addEventHandler;
+
+exeCVM "USER\switch\spark.sqf";
