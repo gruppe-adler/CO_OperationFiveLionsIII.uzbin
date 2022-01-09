@@ -31,7 +31,7 @@ _args set [0, _time];
 
 // private _dir = (linearConversion [0, 4, _max - 0.05 + (random 0.1), 90, -90, true]) mod 360;
 
-if (visibleWatch) then {
+if (visibleWatch && "ChemicalDetector_01_watch_F" in assignedItems player) then {
     private _output = _max - 0.05 + (random 0.1);
     if (_output < 0.01) then {
         _output = 0.00;
