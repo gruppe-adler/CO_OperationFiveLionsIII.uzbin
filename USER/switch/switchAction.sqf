@@ -35,11 +35,11 @@ if (isServer) then {
         params ["_args", "_handle"];
         _args params ["_switch"];
 
-        if (!(_target getVariable ['switchUsable', true])) exitWith {
+        if (!(_switch getVariable ['switchUsable', true])) exitWith {
             [_handle] call CBA_fnc_removePerFrameHandler;
         };
 
         ["GRAD_electricFence_sparkSmall", [position sparkWire]] call CBA_fnc_globalEvent;
 
-    }, 1, [_switch]] call CBA_fnc_addPerFramehandler;
+    }, 2, [_switch]] call CBA_fnc_addPerFramehandler;
 };

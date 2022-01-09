@@ -6,3 +6,5 @@ if (didJIP) then {
 grad_template_ratingEH = player addEventHandler ["HandleRating",{0}];
 
 [true] call cbrn_fnc_init;
+
+player action ["WeaponOnBack", player];
